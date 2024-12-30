@@ -43,7 +43,7 @@ with st.form("add_item_form"):
         if artigo and preco > 0:
             st.session_state.total += preco
             new_row = {"Artigo": artigo, "Preço": preco, "Total Acumulado": st.session_state.total}
-            compras = compras.append(new_row, ignore_index=True)
+            compras = compras.concat(new_row, ignore_index=True)
             save_data(compras)
             st.success(f"Artigo '{artigo}' de {preco:.2f}€ adicionado. Total acumulado: {st.session_state.total:.2f}€.")
 
