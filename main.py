@@ -61,3 +61,15 @@ st.write(f"Total Gasto: {st.session_state.total:.2f}€")
 
 if st.session_state.total >= st.session_state.budget:
     st.write("Você atingiu o limite do orçamento. Nenhuma compra adicional pode ser feita.")
+
+
+# Gráfico do total acumulado
+st.subheader("Gráfico do Total Acumulado")
+fig, ax = plt.subplots()
+ax.plot(compras.index + 1, compras["Total Acumulado"], marker="o", linestyle="-", color="b")
+ax.set_title("Progresso do Total Acumulado")
+ax.set_xlabel("Número da Compra")
+ax.set_ylabel("Total Acumulado (€)")
+ax.grid(True)
+st.pyplot(fig)
+
